@@ -5,14 +5,14 @@ class TasksController < ApplicationController
   
   
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def show
   end
 
   def new
-    @task = Task.new
+    @task = current_user.tasks.new
   end
 
   def create
