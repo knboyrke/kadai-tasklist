@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:show]
   
   
   def index
@@ -9,7 +10,6 @@ class TasksController < ApplicationController
   end
 
   def show
-    redirect_to root_url
   end
 
   def new
