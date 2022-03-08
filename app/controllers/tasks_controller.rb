@@ -9,6 +9,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    redirect_to root_url
   end
 
   def new
@@ -23,7 +24,7 @@ class TasksController < ApplicationController
     else
       @pagy, @tasks = pagy(current_user.tasks.order(id: :desc))
       flash.now[:danger] = 'タスクの投稿に失敗しました。'
-      render 'toppages/index'
+      render :new
     end
   end
 
